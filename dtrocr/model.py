@@ -196,7 +196,7 @@ class DTrOCRLMHeadModel(nn.Module):
             inputs: DTrOCRProcessorOutput,
             processor: DTrOCRProcessor,
             num_beams: int = 1,
-            use_cache: bool = True
+            use_cache: bool = False
     ):
         # params and configs
         batch_size = inputs.input_ids.shape[0]

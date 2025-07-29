@@ -36,13 +36,15 @@ class DTrOCRProcessor:
         images: Union[Image.Image, List[Image.Image]] = None,
         texts: Union[str, List[str]] = None,
         return_labels: bool = False,
-        input_data_format: str = 'channels_last',
+        input_data_format: str = 'channels_first',
         padding: Union[bool, str] = False,
+        truncation: Union[bool, str] = False,
         *args,
         **kwargs
     ) -> DTrOCRProcessorOutput:
+        
         text_inputs = self.tokeniser(
-            texts, padding=padding, *args, **kwargs
+            texts, padding=padding, truncation=truncation, *args, **kwargs
         ) if texts is not None else None
 
         image_inputs = self.vit_processor(
